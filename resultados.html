@@ -1,0 +1,48 @@
+<html>
+  <style>
+    table, th, td {
+      border: 1px solid whitesmoke;
+      border-collapse: collapse;
+      background-color: rgb(235, 227, 227);
+      color: black;
+    }
+    table {
+      width: 80%;
+    }
+    a{
+      color:black;
+    }
+    </style>
+<body>
+  <p>Consulta ->   <strong>{{palabra}}</strong></p>
+  <p>Cantidad->   <strong>{{num}}</strong></p>
+
+  {%if rest_query %}
+
+    <p>Tabla </p>
+
+  <table>
+    <tr>
+
+      <th>ID de Busqueda</th>
+      <th>Nombre del Libro</th>
+      <th>Autor</th>
+      <th>Ranking</th>
+      <th>Archivo</th>
+      
+    </tr>
+
+      {% for libro in rest_query %}
+        <tr><td>{{libro.id}}</td><td>{{libro.nombre}}</td><td><a href=  "file:///C:/Universidad/Topicos en Base de Datos/ModeloBinario/Practica2/Datos_Sinlema/{{libro.txt}}">{{libro.txt}}</a></td></tr>
+
+      {% endfor %}
+
+  {% else %}
+      <p>No hay resultados</p>
+
+    </table>
+  {% endif %}
+</body>
+
+
+</html>

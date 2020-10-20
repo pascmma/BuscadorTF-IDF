@@ -1,0 +1,48 @@
+<html>
+  <style>
+    table, th, td {
+      border: 1px solid whitesmoke;
+      border-collapse: collapse;
+      background-color: rgb(235, 227, 227);
+      color: black;
+    }
+    table {
+      width: 80%;
+    }
+    a{
+      color:black;
+    }
+    </style>
+  <div class="header">
+  <h1>Query:</h1>   
+  <h1><strong>{{palabra}}</strong></h1>
+  <h2>Numero de resultados:   <strong>{{num}}</strong></h2>
+  </div>
+  <body>
+  {%if resultados %}
+
+  <table id="customers">
+    <tr>
+
+      <th>ID de Busqueda</th>
+      <th>Nombre del Libro</th>
+      <th>Autor</th>
+      <th>Ranking</th>
+      <th>Archivo</th>
+      
+    </tr>
+
+      {% for libro in resultados %}
+        <tr><td>{{libro.id}}</td><td>{{libro.nombre}}</td><td>{{libro.autor}}</td><td>{{libro.rank}}</td><td><a href="C:/Universidad/Topicos en Base de Datos/ModeloBinario/Practica2/Datos_Sinlema/{{libro.txt}}">{{libro.txt}}</a></td></tr>
+
+      {% endfor %}
+
+  {% else %}
+      <p>No hay resultados</p>
+
+    </table>
+  {% endif %}
+</body>
+
+
+</html>
